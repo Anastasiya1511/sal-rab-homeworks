@@ -5,18 +5,18 @@ function calcShipping(sum, min, shipping) {
 
     // Задание №2.1. Рассчитать доставку
 
-    let shippingSum
-    if (productsSum == 0 || productsSum >= freeShippingMinSum) {
-    shippingSum = 0;
-    } else if ((productsSum > 0) & (productsSum < freeShippingMinSum)) {
-    shippingSum = shippingPrice;
+    let shippingSum 
+
+      if (productsSum == 0 || productsSum >= freeShippingMinSum)
+        shippingSum = 0; 
+          else shippingSum = shippingPrice;
+            
     }
     
-
     // Конец решения задания №2.1.
 
     return shippingSum;
-}
+
 
 function calcDiscount(sum, min, discount) {
     let productsSum = sum; // сумма в корзине
@@ -25,17 +25,15 @@ function calcDiscount(sum, min, discount) {
 
     // Задание №2.2. Рассчитать скидку
 
-    let discountSum
+    let discountSum = ((productsSum >= discountMinSum) ? discountPart / 100 * productsSum); 
+        
 
-    if (productsSum >= discountMinSum) {
-    }else (discountSum = discountPart / 100 * productsSum) {
-     discountSum = 0;
     }
 
     // Конец решения задания №2.2.
 
     return discountSum;
-}
+
 
 function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shippingPrice}) {
     let productsSum = sum;
@@ -44,12 +42,12 @@ function calcInvoice({sum, discountMinSum, discountPart, shippingFreeMinSum, shi
     // Задача №2.3. Рассчитать скидки и доставку в корзине
 
     let totalSum
-    totalSum = productsSum;
-    totalSum = totalSum - discountSum;
-    let shippingSum = calcShipping(totalSum, shippingFreeMinSum, shippingPrice); // не изменяйте эту строку!!!
-    totalSum = totalSum + shippingSum;
-    let freeShipping
-    freeShipping = !shippingSum;
+      totalSum = productsSum;
+        totalSum = (totalSum - discountSum);
+          let shippingSum = calcShipping(totalSum, shippingFreeMinSum, shippingPrice); // не изменяйте эту строку!!!
+            totalSum = (totalSum + shippingSum);
+              let freeShipping
+                freeShipping = !Bolean (shippingSum);
 
     // Конец решения задачи №2.3.
 
